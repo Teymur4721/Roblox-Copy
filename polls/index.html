@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Səsvermə Sualları</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 30px;">
+    <h2>Mövcud Suallar</h2>
+
+    {% if questions %}
+        <ul>
+        {% for question in questions %}
+            <li style="margin-bottom: 10px;">
+                <a href="{% url 'polls:detail' question.id %}" style="font-size: 18px; text-decoration: none; color: #007bff;">
+                    {{ question.question_text }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Hələ heç bir sual əlavə edilməyib. Əvvəlcə <a href="/admin/">Admin Paneldən</a> sual əlavə edin.</p>
+    {% endif %}
+</body>
+</html>

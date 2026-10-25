@@ -1,0 +1,9 @@
+<h2>Nəticələr: {{ question.question_text }}</h2>
+
+<ul>
+  {% for choice in question.choices.all %}
+    <li>{{ choice.choice_text }} — <strong>{{ choice.votes }}</strong> səs</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'polls:index' %}">Digər suallar</a>
